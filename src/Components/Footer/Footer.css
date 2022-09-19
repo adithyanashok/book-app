@@ -1,0 +1,24 @@
+.footer{
+    width: 100%;
+    background-color: #030b17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.footer-items{
+    display: flex;
+    margin-top: 120px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.footer-links{
+    display: flex;
+    justify-content: space-between;
+    width: 214px;
+}
+.footer-text{
+    margin-top: 10px;
+}

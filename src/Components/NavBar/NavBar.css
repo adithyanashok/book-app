@@ -1,0 +1,74 @@
+ .navbar{
+    background-color: #05162f;
+    color: #c4b9b9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1;
+}
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("https://previews.123rf.com/images/fokaspokas/fokaspokas1809/fokaspokas180900164/108564673-hamburger-menu-web-icon-white-icon-with-shadow-on-transparent-background.jpg");
+  }
+  .navbar-toggler .navbar-toggler {
+    border: none;
+  }
+  .signinbutton{
+    margin-right: 18px;
+    background-color: #0f79af;
+    color: rgba(242,244,246,.9);
+    width: 135px;
+    height: 32px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+@media only screen and (max-width: 512px){
+    .signinbutton{
+        margin-bottom: 10px;
+    }
+}
+.navbar input{
+    background-color: transparent;
+    border-radius: 1px;
+    outline: none;
+}
+
+/*
+.left{
+    margin-left: 34px;
+    font-family: 'Quicksand', sans-serif;
+
+    font-family: 'Raleway', sans-serif;
+
+    font-family: 'Roboto', sans-serif;
+}
+.right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 63px;
+}
+.search-box input{
+    padding: 8px;
+    color: #fff;
+    width: 239px;
+    border: none;
+    outline: none;
+    background-color: transparent
+}
+.search-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.5px solid white;
+}
+::placeholder{
+    color: #c4b9b9;
+}
+
+.right button:hover{
+    background-color: #095e8a;
+    transition: all .2s ease-out;
+} */
