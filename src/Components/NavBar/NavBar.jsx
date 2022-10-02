@@ -8,7 +8,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useSelector } from 'react-redux';
 const NavBar = () => {  
   const {currentUser} = useSelector((state) => state?.user)
-  console.log(currentUser)
   return (
     <Navbar className='navbar' expand="lg">
       <Container fluid>
@@ -25,7 +24,7 @@ const NavBar = () => {
             <Nav.Link href="#action2">Link</Nav.Link> */}
           </Nav>
           {
-            currentUser ? <button className="signinbutton"><a style={{ color:'inherit', textDecoration:'none'}} href='/profile'>{currentUser.name}</a></button> : <button className="signinbutton"><a style={{ color:'inherit', textDecoration:'none'}} href='/login'>Signin for free</a></button>
+            currentUser ? <button className="signinbutton"><a style={{ color:'inherit', textDecoration:'none'}} href='/profile'>{currentUser?.name}</a></button> : <button className="signinbutton"><a style={{ color:'inherit', textDecoration:'none'}} href='/login'>Signin for free</a></button>
           }
           <Form className="d-flex">
             <Form.Control

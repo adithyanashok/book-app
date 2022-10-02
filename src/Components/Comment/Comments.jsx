@@ -22,7 +22,6 @@ function Comments({bookId}) {
   const handleComment = async () => {
     try{
         const res = await axios.post(`http://localhost:5000/api/comment/`,{bookId, comment})
-        console.log(res.data)
         setComment(res.data)
         window.location.reload()
 

@@ -39,11 +39,11 @@ const Book = () => {
       <NavBar />
       <div className="book-page">
         <div className="cover-img">
-          <img src={currentBook.bookImg} alt="" />
+          <img src={currentBook?.bookImg} alt="" />
         </div>
         <div className="contents">
-          <h1 className="book-title">{currentBook.bookTitle}</h1>
-          <p className="book-author">by {currentBook.authorName} (Author) <p>{format(
+          <h1 className="book-title">{currentBook?.bookTitle}</h1>
+          <p className="book-author">by {currentBook?.authorName} (Author) <p>{format(
                 new Date(currentBook.createdAt).getTime(),
                 "dd-MM-yyyy "
               )}</p> </p>
@@ -52,10 +52,10 @@ const Book = () => {
             <button>Buy Now</button>
           </div>
           <div className="rating">
-            <Rating name="read-only" value={currentBook.rating} readOnly />
+            <Rating name="read-only" value={currentBook?.rating} readOnly />
           </div>
-          <h1 className="text-head">{currentBook.contentName}</h1>
-          <p className="text">{currentBook.content}</p>
+          <h1 className="text-head">{currentBook?.contentName}</h1>
+          <p className="text">{currentBook?.content}</p>
           <Comments bookId={currentBook?._id} />
         </div>
       </div>

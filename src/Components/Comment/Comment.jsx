@@ -21,13 +21,13 @@ function Comment({comment}) {
   return (
     <div className="comments">
         <div className="comment">
-            <h5>{user.name}</h5>
+            <h5>{user?.name}</h5>
             <p className='timeago' >{format(
                 new Date(comment.createdAt).getTime(),
                 "dd-MM-yyyy "
               )}</p>
         </div>      
-            <p>{comment.comment}</p><hr/>
+            <p>{comment?.comment}</p><hr/>
     </div>
   )
 }
