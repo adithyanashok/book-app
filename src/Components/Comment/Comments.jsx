@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
 import SendIcon from '@mui/icons-material/Send';
 import axios from 'axios';
 import Comment from './Comment';
@@ -7,10 +6,9 @@ import Comment from './Comment';
 function Comments({bookId}) {
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-  const  {currentUser} = useSelector((state) => state.user);
     
   useEffect(() => {
-    const fetchComments = async () => {
+    const fetchComments = async () => { 
       try {
         const bookRes = await axios.get(`http://localhost:5000/api/comment/find/${bookId}`);
         setComments(bookRes.data);
