@@ -9,7 +9,7 @@ function Comment({comment}) {
     useEffect(() => {
       const fetchComment = async () => {
         try{
-            const userRes = await axios.get(`http://localhost:5000/api/user/find/${comment.userId}`)
+            const userRes = await axios.get(`https://api-review-app.herokuapp.com/api/user/find/${comment.userId}`)
             setUser(userRes.data)
         } catch (err) {
             console.log(err)

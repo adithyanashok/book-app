@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault()
     dispatch(loginStart())
     try{
-      const res = await axios.post('http://localhost:5000/api/auth/signin', {email, password})
+      const res = await axios.post('https://api-review-app.herokuapp.com/api/auth/signin', {email, password})
       console.log(res.data)
       dispatch(loginSuccess(res.data))
       navigate('/')
@@ -27,6 +27,7 @@ const Login = () => {
             <h2>Sign In</h2>
             <input type="email" placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} />
             <input type="password" placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
+            <a href="/signup">Create an account?</a>
             <button onClick={handleLogin} >Signin</button>
         </div>
     </div>

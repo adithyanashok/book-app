@@ -10,7 +10,7 @@ function Comments({bookId}) {
   useEffect(() => {
     const fetchComments = async () => { 
       try {
-        const bookRes = await axios.get(`http://localhost:5000/api/comment/find/${bookId}`);
+        const bookRes = await axios.get(`https://api-review-app.herokuapp.com/api/comment/find/${bookId}`);
         setComments(bookRes.data);
         console.log(bookRes.data)
       } catch (err) {

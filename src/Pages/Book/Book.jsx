@@ -20,10 +20,10 @@ const Book = () => {
       dispatch(fetchStart());
       try {
         const bookRes = await axios.get(
-          `http://localhost:5000/api/books/find/${bookId}`
+          `https://api-review-app.herokuapp.com/api/books/find/${bookId}`
         );
         const userRes = await axios.get(
-          `http://localhost:5000/api/user/find/${bookRes.data.userId}`
+          `https://api-review-app.herokuapp.com/api/user/find/${bookRes.data.userId}`
         );
         setUser(userRes.data);
         dispatch(fetchSuccess(bookRes.data));
