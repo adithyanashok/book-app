@@ -1,6 +1,7 @@
 import Signup from "./Pages/Signup/Signup";
 import Book from "./Pages/Book/Book";
 import Home from "./Pages/Home";
+import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter,
@@ -9,6 +10,8 @@ import {
 } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import Footer from "./Components/Footer/Footer";
+axios.defaults.withCredentials = true
+
 function App() {
   return (
     <div className="App">

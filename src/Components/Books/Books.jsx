@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Books.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 const Books = () => {
+  const [books, setBooks] = useState([])
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try{
+        const res = await axios.get('http://localhost:5000/api/books')
+        console.log(res.data)
+        setBooks(res.data)
+      }catch (err){
+        console.log(err)
+      }
+    }
+    fetchBooks()
+  }, [])
+  
   return (
     <div className='books-section' >
         <div className="books-wrapper">
-            <Link to='/book/thinkandgrowrich' ><img className='book-card' src="https://images-na.ssl-images-amazon.com/images/I/718wzK6mymL.jpg" alt="" /></Link>
+          {
+            books.map((book)=>(
+              <Link key={book._id} to={`/book/${book._id}`} ><img className='book-card' src={book.bookImg} alt="" /></Link>
+
+            ))
+          }
         </div>
     </div>
   )

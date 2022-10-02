@@ -1,60 +1,62 @@
-import React from 'react'
-import './Book.css'
-import Rating from '@mui/material/Rating';
-import SendIcon from '@mui/icons-material/Send';
-import NavBar from '../../Components/NavBar/NavBar';
+import React, { useEffect, useState } from "react";
+import "./Book.css";
+import Rating from "@mui/material/Rating";
+import NavBar from "../../Components/NavBar/NavBar";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { format } from 'timeago.js'
+import { fetchFailure, fetchStart, fetchSuccess } from "../../redux/bookSlice";
+import Comments from "../../Components/Comment/Comments";
 const Book = () => {
-    const value = 4;
+  const bookId = useLocation().pathname.split("/")[2];
+  const { currentBook } = useSelector((state) => state.book);
+  const dispatch = useDispatch();
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    const fetchBooks = async () => {
+      dispatch(fetchStart());
+      try {
+        const bookRes = await axios.get(
+          `http://localhost:5000/api/books/find/${bookId}`
+        );
+        const userRes = await axios.get(
+          `http://localhost:5000/api/user/find/${bookRes.data.userId}`
+        );
+        setUser(userRes.data);
+        dispatch(fetchSuccess(bookRes.data));
+      } catch (err) {
+        dispatch(fetchFailure());
+      }
+    };
+    fetchBooks();
+  }, [dispatch, bookId]);
+
   return (
     <>
-    <NavBar/>
-    <div className='book-page' >
+      <NavBar />
+      <div className="book-page">
         <div className="cover-img">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/718wzK6mymL.jpg" alt="" />
+          <img src={currentBook.bookImg} alt="" />
         </div>
         <div className="contents">
-            <h1 className="book-title">Think and grow rich</h1>
-            <p className='book-author' >by Napolean Hill (Author)</p>
-            <div className="actions">
-                <h3>Adam Jhon</h3>
-                <button>Buy Now</button>
-            </div>
-                <div className="rating">
-                    <Rating name="read-only" value={value} readOnly />
-                </div>
-            <h1 className="text-head">Summary</h1>
-            <p className='text' >To put it in simple terms, you can become anything that your mind deems possible; as a result, your mind becomes the one thing that can either stop you or propel you toward becoming the best version of yourself.</p>
-            <div className="comments">
-                <h3>Comments</h3>
-                <div className="text-field">
-                    <input type="text" placeholder='Enter your comment' />
-                    <SendIcon/>
-                </div>
-                <div className="comment">
-                    <h5>Adithyan</h5>
-                    <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p><hr/>
-                </div>
-                <div className="comment">
-                    <h5>Adithyan</h5>
-                    <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p><hr/>
-                </div>
-                <div className="comment">
-                    <h5>Adithyan</h5>
-                    <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p><hr/>
-                </div>
-                <div className="comment">
-                    <h5>Adithyan</h5>
-                    <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p><hr/>
-                </div>
-                <div className="comment">
-                    <h5>Adithyan</h5>
-                    <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p><hr/>
-                </div>
-            </div>
+          <h1 className="book-title">{currentBook.bookTitle}</h1>
+          <p className="book-author">by {currentBook.authorName} (Author) <p>{format(currentBook.createdAt)}</p> </p>
+          <div className="actions">
+            <h3>{user?.name}</h3>
+            <button>Buy Now</button>
+          </div>
+          <div className="rating">
+            <Rating name="read-only" value={currentBook.rating} readOnly />
+          </div>
+          <h1 className="text-head">{currentBook.contentName}</h1>
+          <p className="text">{currentBook.content}</p>
+          <Comments bookId={currentBook?._id} />
         </div>
-    </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Book
+export default Book;
