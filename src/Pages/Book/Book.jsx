@@ -44,7 +44,7 @@ const Book = () => {
         <div className="contents">
           <h1 className="book-title">{currentBook?.bookTitle}</h1>
           <p className="book-author">by {currentBook?.authorName} (Author) <p>{format(
-                new Date(currentBook.createdAt).getTime(),
+                new Date(currentBook?.createdAt).getTime(),
                 "dd-MM-yyyy "
               )}</p> </p>
           <div className="actions">
