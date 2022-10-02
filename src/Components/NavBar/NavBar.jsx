@@ -24,7 +24,7 @@ const NavBar = () => {
             <Nav.Link href="#action2">Link</Nav.Link> */}
           </Nav>
           {
-            currentUser ? <a style={{ color:'inherit', textDecoration:'none'}} href='/login'>{currentUser?.name}</a> : <a style={{ color:'inherit', textDecoration:'none'}} href='/login'>Signin for free</a>
+            currentUser ? <a style={{ color:'inherit', textDecoration:'none'}} href='/login'>{currentUser?.name}</a> : <a style={{ color:'inherit', textDecoration:'none'}} href='/authentication-login'>Signin for free</a>
           }
           <Form className="d-flex">
             <Form.Control
