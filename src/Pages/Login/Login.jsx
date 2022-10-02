@@ -4,11 +4,13 @@ import './Login.css'
 import { useNavigate } from 'react-router-dom'
 import {useDispatch } from 'react-redux'
 import {loginStart, loginSuccess, loginFailure} from '../../redux/userSlice'
+import { Link } from 'react-router-dom'
 const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
   const handleLogin = async (e) => {
     e.preventDefault()
     dispatch(loginStart())
@@ -27,7 +29,7 @@ const Login = () => {
             <h2>Sign In</h2>
             <input type="email" placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} />
             <input type="password" placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
-            <a href="/signup">Create an account?</a>
+            <Link to={'/authentication-signup'}>Create an account</Link>
             <button onClick={handleLogin} >Signin</button>
         </div>
     </div>

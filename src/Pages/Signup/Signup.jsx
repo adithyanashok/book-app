@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice'
 import './Signup.css'
+import { Link } from 'react-router-dom'
+
 const Signup = () => {
   const dispatch = useDispatch()
   const [name, setName] = useState('')
@@ -26,6 +28,7 @@ const Signup = () => {
         <input type="email" placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
         <a href="/login">Already have an account?</a>
+        <Link to={'/authentication-login'}>Already have an account</Link>
         <button onClick={signIn} >Signup</button>
       </div>
     </div>

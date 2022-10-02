@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
+
 const NavBar = () => {  
   const {currentUser} = useSelector((state) => state?.user)
   return (
@@ -24,7 +26,8 @@ const NavBar = () => {
             <Nav.Link href="#action2">Link</Nav.Link> */}
           </Nav>
           {
-            currentUser ? <a style={{ color:'inherit', textDecoration:'none'}} href='/login'>{currentUser?.name}</a> : <a style={{ color:'inherit', textDecoration:'none'}} href='/authentication-login'>Signin for free</a>
+          
+            currentUser ? <Link to={'/authentication-login'}>Logout</Link> : <Link to={'/authentication-login'}>Login</Link>
           }
           <Form className="d-flex">
             <Form.Control

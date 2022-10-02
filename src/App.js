@@ -20,7 +20,7 @@ function App() {
           <Route index element={<Home/>} />
           <Route path='book/:id' element={<Book/>}/>
           <Route path='/authentication-login' element={<Login/>}/>
-          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/authentication-signup' element={<Signup/>}/>
         </Routes>
       </BrowserRouter> 
       <Footer/>
