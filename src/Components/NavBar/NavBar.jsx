@@ -24,7 +24,7 @@ const NavBar = () => {
             <Nav.Link href="#action2">Link</Nav.Link> */}
           </Nav>
           {
-            currentUser ? <button className="signinbutton"><a style={{ color:'inherit', textDecoration:'none'}} href='/profile'>{currentUser?.name}</a></button> : <button className="signinbutton"><a style={{ color:'inherit', textDecoration:'none'}} href='/login'>Signin for free</a></button>
+            currentUser ? <button className="signinbutton"><a style={{ color:'inherit', textDecoration:'none'}} href='/login'>{currentUser?.name}</a></button> : <button className="signinbutton"><a style={{ color:'inherit', textDecoration:'none'}} href='/login'>Signin for free</a></button>
           }
           <Form className="d-flex">
             <Form.Control
