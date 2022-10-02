@@ -7,7 +7,7 @@ const Books = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try{
-        const res = await axios.get('http://localhost:5000/api/books')
+        const res = await axios.get('https://api-review-app.herokuapp.com/api/books') 
         console.log(res.data)
         setBooks(res.data)
       }catch (err){
