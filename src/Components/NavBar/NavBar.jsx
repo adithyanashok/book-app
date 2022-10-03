@@ -5,11 +5,17 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { logout } from '../../redux/userSlice';
 
 const NavBar = () => {  
   const {currentUser} = useSelector((state) => state?.user)
+    
+    const dispatch = useDispatch()
+    const handleLogout = () => {
+      dispatch(logout())
+    }
   return (
     <Navbar className='navbar' expand="lg">
       <Container fluid>
@@ -27,7 +33,7 @@ const NavBar = () => {
           </Nav>
           {
           
-            currentUser ? <Link className='signinbutton' to={'/profile'}>{currentUser.name}</Link> : <Link className='signinbutton' to={'/authentication-login'}>Login</Link>
+            currentUser ? <><button className='signinbutton' onClick={handleLogout} >Logout</button><Link className='signinbutton' to={'/profile'}>{currentUser.name}</Link></> : <Link className='signinbutton' to={'/authentication-login'}>Login</Link>
           }
           <Form className="d-flex">
             <Form.Control
