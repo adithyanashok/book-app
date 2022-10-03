@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <Navbar className='navbar' expand="lg">
       <Container fluid>
-        <Navbar.Brand style={{ color: 'white', textDecoration: 'none' }} href="/">The Library</Navbar.Brand>
+        <Navbar.Brand style={{ color: 'white', textDecoration: 'none', fontFamily: 'Dangrek, cursive', fontSize: '35px' }} href="/">The Library</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" /> 
             
         <Navbar.Collapse id="navbarScroll">
@@ -27,7 +27,7 @@ const NavBar = () => {
           </Nav>
           {
           
-            currentUser ? <Link to={'/authentication-login'}>Logout</Link> : <Link to={'/authentication-login'}>Login</Link>
+            currentUser ? <Link className='signinbutton' to={'/profile'}>{currentUser.name}</Link> : <Link className='signinbutton' to={'/authentication-login'}>Login</Link>
           }
           <Form className="d-flex">
             <Form.Control

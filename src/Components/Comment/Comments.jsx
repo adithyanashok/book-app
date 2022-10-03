@@ -21,7 +21,7 @@ function Comments({bookId}) {
   }, [bookId]);
   const handleComment = async () => {
     try{
-        const res = await axios.post(`http://localhost:5000/api/comment/`,{bookId, comment})
+        const res = await axios.post(`https://api-review-app.herokuapp.com/api/comment/`,{bookId, comment})
         setComment(res.data)
         window.location.reload()
 

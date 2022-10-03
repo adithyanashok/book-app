@@ -22,11 +22,13 @@ const Book = () => {
         const bookRes = await axios.get(
           `https://api-review-app.herokuapp.com/api/books/find/${bookId}`
         );
+        console.log(bookRes.data)
+        dispatch(fetchSuccess(bookRes.data));
         const userRes = await axios.get(
           `https://api-review-app.herokuapp.com/api/user/find/${bookRes.data.userId}`
         );
+        console.log(userRes.data)
         setUser(userRes.data);
-        dispatch(fetchSuccess(bookRes.data));
       } catch (err) {
         dispatch(fetchFailure());
       }
