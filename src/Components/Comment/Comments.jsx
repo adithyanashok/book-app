@@ -25,7 +25,7 @@ function Comments({bookId}) {
     try{
         const res = await axios.post(`https://api-review-app.herokuapp.com/api/comment/`,{bookId, comment})
         setComment(res.data)
-        navigate(`https://celebrated-tiramisu-fcf1d7.netlify.app/book/${bookId}`)
+        navigate('')
     } catch (err) {
         console.log(err)
     }
