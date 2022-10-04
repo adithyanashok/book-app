@@ -3,12 +3,9 @@ import SendIcon from '@mui/icons-material/Send';
 import axios from 'axios';
 import Comment from './Comment';
 
-import { useNavigate } from 'react-router-dom'
-
 function Comments({bookId}) {
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-    const navigate = useNavigate()
   useEffect(() => {
     const fetchComments = async () => { 
       try {
@@ -25,7 +22,7 @@ function Comments({bookId}) {
     try{
         const res = await axios.post(`https://api-review-app.herokuapp.com/api/comment/`,{bookId, comment})
         setComment(res.data)
-        navigate('')
+        setComment('')
     } catch (err) {
         console.log(err)
     }
