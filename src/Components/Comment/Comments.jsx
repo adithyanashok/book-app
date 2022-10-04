@@ -3,25 +3,26 @@ import SendIcon from '@mui/icons-material/Send';
 import axios from 'axios';
 import Comment from './Comment';
 import { useDispatch } from 'react-redux';
-import { commentFailure, commentStart, commentSuccess, fetchCommentFailure, fetchCommentStart, fetchCommentSuccess } from '../../redux/commentSlice';
+import { commentFailure, commentStart, commentSuccess } from '../../redux/commentSlice';
+import { useNavigate } from 'react-router-dom'
 
 function Comments({bookId}) {
     const dispatch = useDispatch()
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-    
+    const navigate = useNavigate()
   useEffect(() => {
     const fetchComments = async () => { 
-        dispatch(fetchCommentStart())
       try {
         const bookRes = await axios.get(`https://api-review-app.herokuapp.com/api/comment/find/${bookId}`);
-        dispatch(fetchCommentSuccess(bookRes.data))
+        setComments(bookRes.data)
+        navigate(`https://celebrated-tiramisu-fcf1d7.netlify.app/book/${bookId}`)
       } catch (err) {
-        dispatch(fetchCommentFailure(err))
+        console.log(err)
       }
     };
     fetchComments();
-  }, [bookId, dispatch]);
+  }, [bookId, navigate]);
   const handleComment = async () => {
     dispatch(commentStart())
     try{
