@@ -22,7 +22,7 @@ function Comments({bookId}) {
     try{
         const res = await axios.post(`https://api-review-app.herokuapp.com/api/comment/`,{bookId, comment})
         setComment(res.data)
-        setComment('')
+        window.location.reload()
     } catch (err) {
         console.log(err)
     }
