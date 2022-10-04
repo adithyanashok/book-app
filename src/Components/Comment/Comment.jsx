@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import '../../Pages/Book/Book.css'
-// import {format } from 'date-fns'
+import {format} from 'timeago.js'
 
 function Comment({comment}) {
     const [user, setUser] = useState({})
@@ -21,7 +21,7 @@ function Comment({comment}) {
   return (
     <div className="comments">
         <div className="comment">
-            <h5>{user?.name}</h5>
+            <h5>{user?.name}  - {format(comment?.createdAt)} </h5>
             
         </div>      
             <p>{comment?.comment}</p><hr/>

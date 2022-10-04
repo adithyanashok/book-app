@@ -7,7 +7,6 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {format} from 'timeago.js'
-// import {format } from 'date-fns'
 import { fetchFailure, fetchStart, fetchSuccess } from "../../redux/bookSlice";
 import Comments from "../../Components/Comment/Comments";
 const Book = () => {
@@ -46,7 +45,7 @@ const Book = () => {
         </div>
         <div className="contents">
           <h1 className="book-title">{currentBook?.bookTitle}</h1>
-          <p className="book-author">by {currentBook?.authorName} (Author) { format(currentBook?.createdAt)}</p> 
+          <p className="book-author">by {currentBook?.authorName} (Author)  -  { format(currentBook?.createdAt)}</p> 
           <div className="actions">
             <h3>{user?.name}</h3>
             <button>Buy Now</button>
