@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import SendIcon from '@mui/icons-material/Send';
 import axios from 'axios';
 import Comment from './Comment';
-import { useDispatch } from 'react-redux';
-import { commentFailure, commentStart, commentSuccess } from '../../redux/commentSlice';
+
 import { useNavigate } from 'react-router-dom'
 
 function Comments({bookId}) {
-    const dispatch = useDispatch()
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
     const navigate = useNavigate()
