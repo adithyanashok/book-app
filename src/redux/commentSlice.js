@@ -21,12 +21,21 @@ export const commentSlice = createSlice({
       state.loading = false;
       state.error = true;
     },
-    
-      
+    fetchCommentStart: (state) => {
+        state.loading = true;
+    },
+    fetchCommentSuccess: (state, action) => {
+        state.loading = false;
+        state.currentComment = action.payload;
+    },
+    fetchCommentFailure: (state) => {
+        state.loading = false;
+        state.error = true;
+    },
   },
 });
 
-export const { commentStart, commentSuccess, commentFailure } =
+export const { commentStart, commentSuccess, commentFailure, fetchCommentStart, fetchCommentSuccess, fetchCommentFailure } =
   commentSlice.actions;
 
 export default commentSlice.reducer;

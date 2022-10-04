@@ -3,7 +3,7 @@ import SendIcon from '@mui/icons-material/Send';
 import axios from 'axios';
 import Comment from './Comment';
 import { useDispatch } from 'react-redux';
-import { commentFailure, commentStart, commentSuccess } from '../../redux/commentSlice';
+import { commentFailure, commentStart, commentSuccess, fetchCommentFailure, fetchCommentStart, fetchCommentSuccess } from '../../redux/commentSlice';
 
 function Comments({bookId}) {
     const dispatch = useDispatch()
@@ -12,16 +12,16 @@ function Comments({bookId}) {
     
   useEffect(() => {
     const fetchComments = async () => { 
+        dispatch(fetchCommentStart())
       try {
         const bookRes = await axios.get(`https://api-review-app.herokuapp.com/api/comment/find/${bookId}`);
-        setComments(bookRes.data);
-        console.log(bookRes.data)
+        dispatch(fetchCommentSuccess(bookRes.data))
       } catch (err) {
-        console.log(err)
+        dispatch(fetchCommentFailure(err))
       }
     };
     fetchComments();
-  }, [bookId]);
+  }, [bookId, dispatch]);
   const handleComment = async () => {
     dispatch(commentStart())
     try{
