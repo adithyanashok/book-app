@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault()
     dispatch(loginStart())
     try{
-      const res = await axios.post('https://api-review-app.herokuapp.com/access-control-allow-origin/api/auth/signin/', {email, password})
+      const res = await axios.post('https://api-review-app.herokuapp.com/api/auth/signin/', {email, password})
       console.log(res.data)
       dispatch(loginSuccess(res.data))
       navigate('/')
