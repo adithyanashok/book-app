@@ -46,7 +46,7 @@ const Book = () => {
         </div>
         <div className="contents">
           <h1 className="book-title">{currentBook?.bookTitle}</h1>
-          <p className="book-author">by {currentBook?.authorName} (Author) </p> <p className='timeago' >{ format(currentBook?.createdAt)}</p>
+          <p className="book-author">by {currentBook?.authorName} (Author) { format(currentBook?.createdAt)}</p> 
           <div className="actions">
             <h3>{user?.name}</h3>
             <button>Buy Now</button>
