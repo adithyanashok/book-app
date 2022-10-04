@@ -16,21 +16,20 @@ function Comments({bookId}) {
       try {
         const bookRes = await axios.get(`https://api-review-app.herokuapp.com/api/comment/find/${bookId}`);
         setComments(bookRes.data)
-        navigate(`https://celebrated-tiramisu-fcf1d7.netlify.app/book/${bookId}`)
       } catch (err) {
         console.log(err)
       }
     };
     fetchComments();
-  }, [bookId, navigate]);
+  }, [bookId]);
   const handleComment = async () => {
-    dispatch(commentStart())
+    
     try{
         const res = await axios.post(`https://api-review-app.herokuapp.com/api/comment/`,{bookId, comment})
-        dispatch(commentSuccess(res.data))
-
+        setComment(res.data)
+        navigate(`https://celebrated-tiramisu-fcf1d7.netlify.app/book/${bookId}`)
     } catch (err) {
-        dispatch(commentFailure(err))
+        console.log(err)
     }
   }
   return (
