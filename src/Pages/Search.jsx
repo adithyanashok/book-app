@@ -6,11 +6,11 @@ import NavBar from '../Components/NavBar/NavBar'
 function Search() {
     const [books, setBooks] = useState([])
     const query = useLocation().search
-    const PF = 'https://celebrated-tiramisu-fcf1d7.netlify.app/images/'
+    const PF = 'https://api-review-app.herokuapp.com/images/'
     useEffect(() => {
       const fetchVideos = async () => {
         try{
-            const res = await axios.get(` https://api-review-app.herokuapp.com/api/books/search/${query}`)
+            const res = await axios.get(`https://api-review-app.herokuapp.com/api/books/search/${query}`)
             setBooks(res.data)
         }catch(err){
             console.log(err)
