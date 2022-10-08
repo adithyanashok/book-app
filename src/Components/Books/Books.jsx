@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 const Books = () => {
   const [books, setBooks] = useState([])
+  const PF = 'https://api-review-app.herokuapp.com/images/'
   useEffect(() => {
     const fetchBooks = async () => {
       try{
@@ -22,7 +23,7 @@ const Books = () => {
         <div className="books-wrapper">
           {
             books.map((book)=>(
-              <Link key={book._id} to={`/book/${book._id}`} ><img className='book-card' src={book.bookImg} alt="" /></Link>
+              <Link key={book._id} to={`/book/${book._id}`} ><img className='book-card' src={PF+book.bookImg} alt="" /></Link>
 
             ))
           }

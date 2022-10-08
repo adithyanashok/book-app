@@ -1,0 +1,55 @@
+.update-books{
+    background-color: #051328;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:250vh;
+}
+.update-book{
+    width: 282px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    margin-bottom: 770px;
+    height: auto;
+}
+.update-book input{
+    margin-top: 18px;
+    width: 90%;
+    border: 1px solid white;
+    background: transparent;
+    padding: 9px;
+    color:white;
+}
+.update-book h1{
+    font-size: 28px;
+    margin-top: 13px;
+}
+.update-book button{
+    padding:5px;
+    background-color:#0f79af;
+    width: 103px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    margin-top: 14px;
+}
+.update-book select{
+    margin-top: 18px;
+    width: 90%;
+    border: 1px solid white;
+    background: transparent;
+    padding: 9px;
+    color:grey;
+}
+.update-book textarea{
+    margin-top: 18px;
+    width: 90%;
+    border: 1px solid white;
+    background: transparent;
+    padding: 9px;
+    color: white;
+}

@@ -9,12 +9,12 @@
     display: flex;
     flex-wrap: wrap;
     transition: all .2s ease-out;
+    gap: 10px;
 }
 
 .book-card{
     width: 140px;
     margin-top: 57px;
-    margin-left: 13px;
     border-radius: 4px;
     cursor: pointer;
     transition: all .2s ease-out;

@@ -14,7 +14,7 @@
     border: none;
   }
   .signinbutton{
-    margin-right: 18px;
+    margin-left: 10px;
     background-color: #0f79af;
     color: rgba(242,244,246,.9);
     width: 135px;
@@ -33,6 +33,12 @@
     color:rgba(242,244,246,.9);
 
 }
+@media only screen and (max-width: 988px) {
+    .signinbutton{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+}
 @media only screen and (max-width: 512px){
     .signinbutton{
         margin-bottom: 10px;
@@ -46,6 +52,8 @@
 @media only screen and (max-width: 828px){
     .signinbutton{
         margin-bottom: 15px;
+        margin-right: 12px;
+
     }
 }
 

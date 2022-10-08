@@ -21,7 +21,8 @@ function Comment({comment}) {
   return (
     <div className="comments">
         <div className="comment">
-            <h5>{user?.name}  - {format(comment?.createdAt)} </h5>
+            <h5>{user?.name}</h5>
+            <p>{format(comment?.createdAt)}</p>
             
         </div>      
             <p>{comment?.comment}</p><hr/>

@@ -35,6 +35,9 @@
     background-color: #0f79af;
     color: white;
 }
+.error-message{
+    color: red;
+}
 ::placeholder{
     color: #fff;
 }

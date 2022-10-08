@@ -30,7 +30,7 @@
     margin-top: 11px;
     align-items: center;
 }
-.actions button{
+.actions .link{
     padding: 10px;
     border-radius: 3px;
     border: none;
@@ -38,6 +38,27 @@
     background-color: #0f79af;
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
+}
+.actions .update-button{
+    padding: 4px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 29px;
+    background-color: #0f79af;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+.actions .delete-button{
+    padding: 4px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 29px;
+    background-color: #930606;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
 }
 .text-head{
     font-size: 38px;
@@ -70,11 +91,19 @@
     background-color: transparent;
     border: none;
 }
+.comments p{
+    margin-left: 11px;
+}
 .comment{
     margin-top: 18px;
     line-height: 23px;
     margin-left: 8px;
     display: flex;
+}
+.comment p{
+    font-size: 13px;
+    margin-left: 14px;
+    color: gray;
 }
 .timeago{
     font-size: 12px;
@@ -122,7 +151,13 @@
     .text-head{
         font-size: 33px;
     }
-    .actions button{
+    .actions .link{
+        padding: 7px;
+    }
+    .actions .update-button{
+        padding: 7px;
+    }
+    .actions .delete-button{
         padding: 7px;
     }
 }
@@ -147,7 +182,15 @@
     .text-field input{
         width: 90%;
     }
-    .actions button{
+    .actions .link{
+        padding:5px;
+        font-size: 15px
+    }
+    .actions .update-button{
+        padding:5px;
+        font-size: 15px
+    }
+    .actions .delete-link{
         padding:5px;
         font-size: 15px
     }
@@ -157,9 +200,7 @@
     .comment h5{
         font-size: 24px;
     }
-    .comment p{
-        font-size: 20px;
-    }
+    
 }
 @media only screen and (min-width: 828px){
     .book-page{
@@ -172,7 +213,15 @@
         font-size:19px;
 
     }
-    .actions button{
+    .actions .link{
+        padding: 6px;
+        font-size: 13px;
+    }
+    .actions .update-link{
+        padding: 6px;
+        font-size: 13px;
+    }
+    .actions .delete-link{
         padding: 6px;
         font-size: 13px;
     }
@@ -209,7 +258,15 @@
         font-size:17px;
 
     }
-    .actions button{
+    .actions .link{
+        padding: 5px;
+        font-size: 11px;
+    }
+    .actions .update-link{
+        padding: 5px;
+        font-size: 11px;
+    }
+    .actions .delete-link{
         padding: 5px;
         font-size: 11px;
     }
@@ -226,9 +283,7 @@
     .comment h5{
         font-size: 16px;
     }
-    .comment p{
-        font-size: 15px;
-    }
+    
     .text-head {
         font-size: 25px;
     }
@@ -244,7 +299,15 @@
         font-size:15px;
 
     }
-    .actions button{
+    .actions .link{
+        padding: 5px;
+        font-size: 11px;
+    }
+    .actions .update-button{
+        padding: 5px;
+        font-size: 11px;
+    }
+    .actions .delete-button{
         padding: 5px;
         font-size: 11px;
     }
@@ -261,9 +324,7 @@
     .comment h5{
         font-size: 16px;
     }
-    .comment p{
-        font-size: 15px;
-    }
+    
     .text-head {
         font-size: 25px;
     }
@@ -295,7 +356,7 @@
         font-size:19px;
 
     }
-    .actions button{
+    .actions .link{
         padding: 7px;
         font-size: 14px;
     }
@@ -375,7 +436,5 @@
       .comment h5 {
         font-size: 15px;
       }
-      .comment p {
-        font-size: 13px;
-      }
+      
 }

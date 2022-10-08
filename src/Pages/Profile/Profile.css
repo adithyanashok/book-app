@@ -1,0 +1,66 @@
+.profile-page{
+    background-color: #051328;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.profile-page h4{
+    font-size: 17px;
+}
+.profile-image{
+    border-radius: 198px;
+    width: 126px;
+    padding: 11px;
+    margin-top: 20px;
+
+}
+.my-books{
+    width: 100%;
+    height: auto;
+    background-color: #051328;
+    padding-top: 12px;
+}
+.my-book-row{
+    padding-left: 43px;
+    display: flex;
+    flex-wrap: wrap;
+    transition: all .2s ease-out;
+    gap: 10px;
+}
+.my-books .add-book-button{
+    margin-left: 36px;
+    padding: 4px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #0f79af;
+    border-radius: 3px;
+}
+.my-books h1{
+    margin-left: 36px;
+    color: #fff;
+}
+.profile-actions{
+    display: flex;
+    gap: 10px;
+}
+.profile-buttons{
+    padding: 4px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #0f79af;
+    border-radius: 3px;
+}
+.profile-buttons:hover{
+    color: white;
+}
+.logout-button{
+    padding: 4px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #0f79af;
+    border-radius: 3px;
+    border:none;
+}

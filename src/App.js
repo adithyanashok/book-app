@@ -10,6 +10,10 @@ import {
 } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import Footer from "./Components/Footer/Footer";
+import Search from "./Pages/Search";
+import Profile from "./Pages/Profile/Profile";
+import AddBooks from "./Pages/AddBooks/AddBooks";
+import UpdateBook from "./Pages/UpdateBook/UpdateBook";
 
 axios.defaults.withCredentials = true
 
@@ -22,6 +26,11 @@ function App() {
           <Route path='book/:id' element={<Book/>}/>
           <Route path='/authentication-login' element={<Login/>}/>
           <Route path='/authentication-signup' element={<Signup/>}/>
+          <Route path='/search' element={<Search/>}/>
+          <Route path='/profile' element={<Profile/>}/>
+          <Route path='/add-book' element={<AddBooks/>}/>
+          <Route path='/update-book/:id' element={<UpdateBook/>}/>
+
         </Routes>
       </BrowserRouter> 
       <Footer/>
