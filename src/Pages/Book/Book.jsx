@@ -38,7 +38,7 @@ const Book = () => {
     };
     fetchBooks();
   }, [dispatch, bookId]);
-  const owner = bookres.userId === currentUser._id
+  const owner = bookres?.userId === currentUser?._id
   const deleteBook  = async () => {
     try{
       await axios.delete(`https://api-review-app.herokuapp.com/api/books/${bookId}`)
