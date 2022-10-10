@@ -43,7 +43,7 @@ const NavBar = () => {
             <Button variant="outline-primary" onClick={()=>navigate(`/search?q=${q}`)} >Search</Button>
           </Form>
           {
-            currentUser ? <><Link className='signinbutton' to={'/profile'}><PersonIcon /></Link></> : <Link className='signinbutton' to={'/authentication-login'}>Login</Link>
+            currentUser ? <><Link className='signinbutton' to={'/profile'}><PersonIcon /></Link></> : <Link className='signinbutton' to={'/login'}>Login</Link>
           }
         </Navbar.Collapse>
       </Container>

@@ -11,6 +11,12 @@ function UpdateBook() {
   const [contentName, setContentName] = useState('')
   const [content, setContent] = useState('')
   const [file, setFile] = useState(null)
+  const [title, setTitle] = useState('')
+  const [author, setAuthor] = useState('')
+  const [link, setLink] = useState('')
+  const [contents, setContents] = useState('')
+  const [text, setText] = useState('')
+
   const { currentBook } = useSelector((state) => state.book);
    const handleClick = async (e) => {
     e.preventDefault()
@@ -36,19 +42,19 @@ function UpdateBook() {
     try{
       const res = await axios.put(`https://api-review-app.herokuapp.com/api/books/${currentBook._id}`, newBook)
       console.log(res.data)
-      window.location.replace('https://celebrated-tiramisu-fcf1d7.netlify.app/book/' + res.data._id)
+      window.location.replace('https://book-app-ten-orpin.vercel.app/book/' + res.data._id)
     }catch(err) {}
 
    }
-
+    
   return (
     <>
     <NavBar/>
     <div className='update-books' >
         <div className="update-book">
             <h1>Update a book</h1>
-            <input type="text" placeholder={currentBook?.bookTitle} onChange={(e) => setBookName(e.target.value)} />
-            <input type="text" placeholder={currentBook?.authorName} onChange={(e) => setAuthorName(e.target.value)} />
+            <input type="text" value={title} onClick={() => setTitle(currentBook?.bookTitle)} placeholder={currentBook?.bookTitle} onChange={(e) => setBookName(e.target.value)} />
+            <input type="text" value={author} onClick={() => setAuthor(currentBook?.authorName)} placeholder={currentBook?.authorName} onChange={(e) => setAuthorName(e.target.value)} />
             <label for="rating">Rating:</label>
             <select onChange={(e) => setRating(e.target.value)} name="rating">
               <option value={1}>1</option>
@@ -57,9 +63,9 @@ function UpdateBook() {
               <option value={4}>4</option>
               <option value={5}>5</option>
             </select> 
-            <input type="text" placeholder={currentBook?.bookLink} onChange={(e) => setAffilateLink(e.target.value)} />
-            <input type="text" placeholder={currentBook?.contentName} onChange={(e) => setContentName(e.target.value)} />
-            <textarea name="content" placeholder={currentBook?.content} cols="10" rows="10" onChange={(e) => setContent(e.target.value)} ></textarea>
+            <input type="text" value={link} onClick={() => setLink(currentBook?.bookLink)} placeholder={currentBook?.bookLink} onChange={(e) => setAffilateLink(e.target.value)} />
+            <input type="text" value={contents} onClick={() => setContents(currentBook?.contentName)} placeholder={currentBook?.contentName} onChange={(e) => setContentName(e.target.value)} />
+            <textarea name="content" value={text} onClick={() => setText(currentBook?.content)} placeholder={currentBook?.content} cols="10" rows="10" onChange={(e) => setContent(e.target.value)} ></textarea>
             <input type="file" placeholder='Enter book name' id='fileInput' onChange={(e) => setFile(e.target.files[0])} />
             <button onClick={handleClick} >Update</button>
         </div>

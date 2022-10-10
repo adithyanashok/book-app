@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import SendIcon from '@mui/icons-material/Send';
 import axios from 'axios';
 import Comment from './Comment';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Comments({bookId}) {
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
+    const {currentUser} = useSelector((state) => state?.user)
   useEffect(() => {
     const fetchComments = async () => { 
       try {
@@ -30,10 +33,13 @@ function Comments({bookId}) {
   return (
     <div className="comments-container">
         <h3>Comments</h3>
-        <div className="text-field">
+        { currentUser ? <div className="text-field">
             <input type="text" placeholder='Enter your comment' onChange={(e) => setComment(e.target.value)} />
             <SendIcon onClick={handleComment} />
-        </div>
+        </div> : <div>
+          <p>Login To comment</p>
+        <Link style={{backgroundColor:'#0f79af', color:"white", padding:'5px', borderRadius:"3px", textDecoration:'none'}} to='/login'>Login</Link>
+        </div>}
         {comments.map(comment=>(
         <Comment key={comment._id} comment={comment}/>
       ))}

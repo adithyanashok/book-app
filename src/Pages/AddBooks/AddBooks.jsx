@@ -37,7 +37,7 @@ function AddBooks() {
     try{
       const res = await axios.post('https://api-review-app.herokuapp.com/api/books', newBook)
       console.log(res.data)
-      window.location.replace('https://celebrated-tiramisu-fcf1d7.netlify.app/book/' + res.data._id)
+      window.location.replace('https://book-app-ten-orpin.vercel.app/book/' + res.data._id)
     }catch(err) {}
 
    }
@@ -47,7 +47,7 @@ function AddBooks() {
     <NavBar/>
     <div className='add-books' >
         <div className="add-book">
-            {loading ? <h1>Post a book</h1> : <h1>Posting book...</h1> }
+            {loading ? <h1>Posting book...</h1> : <h1>Post a book</h1> }
             <input type="text" placeholder='Enter book name' onChange={(e) => setBookName(e.target.value)} />
             <input type="text" placeholder='Enter author name' onChange={(e) => setAuthorName(e.target.value)} />
             <label for="rating">Rating:</label>

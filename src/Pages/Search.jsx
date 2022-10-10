@@ -26,7 +26,7 @@ function Search() {
         <div className="books-wrapper">
           {
             books.map((book) => (
-                <Link key={book._id} to={`/book/${book._id}`} ><img className='book-card' src={PF+book.bookImg} alt="" /></Link>
+              <Link key={book._id} to={`/book/${book._id}`} ><img className='book-card' src={PF+book.bookImg} alt="" /></Link>
             ))
           }
         </div>

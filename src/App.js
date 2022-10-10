@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route index element={<Home/>} />
           <Route path='book/:id' element={<Book/>}/>
-          <Route path='/authentication-login' element={<Login/>}/>
+          <Route path='/login' element={<Login/>}/>
           <Route path='/authentication-signup' element={<Signup/>}/>
           <Route path='/search' element={<Search/>}/>
           <Route path='/profile' element={<Profile/>}/>
