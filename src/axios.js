@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 export const makeRequest = axios.create({
-    baseURL: 'https://good-gray-walkingstick-sari.cyclic.app/api/',
+    baseURL: 'https://book-review-backend-production.up.railway.app/api/',
     withCredentials: true
 });
