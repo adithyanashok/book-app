@@ -2,24 +2,28 @@
     background-color: #051328;
     color: #fff;
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: center;
-    height:250vh;
+    height: 200vh;
 }
 .add-book{
     width: 282px;
     display: flex;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 10px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
-    margin-bottom: 570px;
+    background-color: #050f1d;
+    margin-bottom: 427px;
+    padding: 10px;
     height: auto;
 }
 .add-book input{
     margin-top: 18px;
     width: 90%;
-    border: 1px solid white;
+    border: none;
+    border-bottom: 0.5px solid grey;
     background: transparent;
     padding: 9px;
     color: white;
@@ -27,7 +31,8 @@
 .add-book select{
     margin-top: 18px;
     width: 90%;
-    border: 1px solid white;
+    border: none;
+    border-bottom: 0.5px solid grey;
     background: transparent;
     padding: 9px;
     color:grey;
@@ -35,7 +40,7 @@
 .add-book textarea{
     margin-top: 18px;
     width: 90%;
-    border: 1px solid white;
+    border: 1px solid grey;
     background: transparent;
     padding: 9px;
     color: white;

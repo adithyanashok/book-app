@@ -2,35 +2,34 @@ import React, { useEffect, useState } from "react";
 import "./Book.css";
 import Rating from "@mui/material/Rating";
 import NavBar from "../../Components/NavBar/NavBar";
-import axios from "axios";
+// import axios from "axios";
 import { useLocation, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import {format} from 'timeago.js'
+import { format } from "timeago.js";
 import { fetchFailure, fetchStart, fetchSuccess } from "../../redux/bookSlice";
 import Comments from "../../Components/Comment/Comments";
+import { makeRequest } from "../../axios";
 const Book = () => {
-  const [bookres, setBookRes] = useState({})
-    const PF = 'https://api-review-app.herokuapp.com/images/'
+  const [bookres, setBookRes] = useState({});
+  const PF = "http://localhost:5000/images/";
   const bookId = useLocation().pathname.split("/")[2];
   const { currentBook } = useSelector((state) => state.book);
-  const {currentUser} = useSelector((state) => state?.user)
+  const { currentUser } = useSelector((state) => state?.user);
   const dispatch = useDispatch();
   const [user, setUser] = useState({});
   useEffect(() => {
     const fetchBooks = async () => {
       dispatch(fetchStart());
       try {
-        const bookRes = await axios.get(
-          `https://api-review-app.herokuapp.com/api/books/find/${bookId}`
-        );
-        setBookRes(bookRes.data)
-        console.log(bookRes.data)
+        const bookRes = await makeRequest.get(`/books/find/${bookId}`);
+        setBookRes(bookRes.data);
+        console.log(bookRes.data);
         dispatch(fetchSuccess(bookRes.data));
-        const userRes = await axios.get(
-          `https://api-review-app.herokuapp.com/api/user/find/${bookRes.data.userId}`
+        const userRes = await makeRequest.get(
+          `/user/find/${bookRes.data.userId}`
         );
-        console.log(userRes.data)
+        console.log(userRes.data);
         setUser(userRes.data);
       } catch (err) {
         dispatch(fetchFailure());
@@ -38,31 +37,47 @@ const Book = () => {
     };
     fetchBooks();
   }, [dispatch, bookId]);
-  const owner = bookres?.userId === currentUser?._id
-  const deleteBook  = async () => {
-    try{
-      await axios.delete(`https://api-review-app.herokuapp.com/api/books/${bookId}`)
-      window.location.replace('/')
-    } catch (err){
-      console.log(err)
+  const owner = bookres?.userId === currentUser?._id;
+  const deleteBook = async () => {
+    try {
+      await makeRequest.delete(`/books/${bookId}`);
+      window.location.replace("/");
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
   return (
     <>
       <NavBar />
-      
+
       <div className="book-page">
         <div className="cover-img">
-          {bookres?.bookImg && <img src={PF+bookres?.bookImg} alt="" />}
+          {bookres?.bookImg && (
+            <img src={PF + bookres?.bookImg} alt={currentBook?.bookTitle} />
+          )}
         </div>
         <div className="contents">
           <h1 className="book-title">{currentBook?.bookTitle}</h1>
-          <p className="book-author">by {currentBook?.authorName} (Author)  -  { format(currentBook?.createdAt)}</p> 
+          <p className="book-author">
+            by {currentBook?.authorName} (Author) -{" "}
+            {format(currentBook?.createdAt)}
+          </p>
           <div className="actions">
             <h3>{user?.name}</h3>
-            <a className="link" href={bookres.bookLink}>Buy Now</a>
-             {owner && <> <Link className="update-button"  to={`/update-book/${bookId}`} >Update</Link> 
-            <button className="delete-button" onClick={deleteBook} >Delete</button> </> }
+            <a className="link" href={bookres.bookLink}>
+              Buy Now
+            </a>
+            {owner && (
+              <>
+                {" "}
+                <Link className="update-button" to={`/update-book/${bookId}`}>
+                  Update
+                </Link>
+                <button className="delete-button" onClick={deleteBook}>
+                  Delete
+                </button>{" "}
+              </>
+            )}
           </div>
           <div className="rating">
             <Rating name="read-only" value={currentBook?.rating} readOnly />

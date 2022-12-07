@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+   
 }
 .profile-page h4{
     font-size: 17px;
@@ -25,6 +25,7 @@
 }
 .my-book-row{
     padding-left: 43px;
+    padding-bottom: 38px;
     display: flex;
     flex-wrap: wrap;
     transition: all .2s ease-out;

@@ -8,36 +8,50 @@
     background-repeat: no-repeat;
 }
 .signup-wrapper{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     width: 332px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
-    height: 328px;
+    background-color: #050f1d;
+    height: auto;
     color: #fff;
 }
 .signup-wrapper input{
     color: #fff;
     padding: 10px;
-    width: 222px;
+    width: 83%;
     margin-top: 19px;
-    border: 0.5px solid;
+    font-size: 14px;
+    border: none;
+    border-bottom: 0.5px solid grey;
     outline: none;
     background-color: transparent;
 }
 .signup-wrapper button{
     padding: 10px;
-    width: 24%;
+    width: 83%;
     border: none;
     border-radius: 3px;
     margin-top: 11px;
     background-color: #0f79af;
     color: white;
 }
+.signup-wrapper h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.signup-wrapper button:hover{
+    background-color: #0e72a5;
+}
+.signup-wrapper a{
+    font-size: 14px;
+}
 .error-message{
     color: red;
+    font-size: 14px
 }
+
 ::placeholder{
     color: #fff;
 }
