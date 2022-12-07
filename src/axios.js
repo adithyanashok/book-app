@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 export const makeRequest = axios.create({
-    baseURL: 'https://api-review-app.herokuapp.com/api/',
+    baseURL: 'https://good-gray-walkingstick-sari.cyclic.app/api/',
     withCredentials: true
 });
