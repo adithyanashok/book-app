@@ -12,7 +12,7 @@ import Comments from "../../Components/Comment/Comments";
 import { makeRequest } from "../../axios";
 const Book = () => {
   const [bookres, setBookRes] = useState({});
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://book-review-backend-production.up.railway.app/images/";
   const bookId = useLocation().pathname.split("/")[2];
   const { currentBook } = useSelector((state) => state.book);
   const { currentUser } = useSelector((state) => state?.user);

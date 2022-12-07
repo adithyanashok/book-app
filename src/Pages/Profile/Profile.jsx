@@ -17,7 +17,7 @@ function Profile() {
     navigate("/");
     console.log(res);
   };
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://book-review-backend-production.up.railway.app/images/";
   const [books, setBook] = useState([]);
   useEffect(() => {
     const fetchBooks = async () => {

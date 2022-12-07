@@ -5,7 +5,7 @@ import "./Books.css";
 import { makeRequest } from "../../axios";
 const Books = () => {
   const [books, setBooks] = useState([]);
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://book-review-backend-production.up.railway.app/images/";
   useEffect(() => {
     const fetchBooks = async () => {
       try {

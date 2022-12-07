@@ -7,7 +7,7 @@ import NavBar from '../Components/NavBar/NavBar'
 function Search() {
     const [books, setBooks] = useState([])
     const query = useLocation().search
-    const PF = 'http://localhost:5000/images/'
+    const PF = 'https://book-review-backend-production.up.railway.app/images/'
     useEffect(() => {
       const fetchVideos = async () => {
         try{
